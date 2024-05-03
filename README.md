@@ -8,35 +8,25 @@ https://www.ncbi.nlm.nih.gov/pcassay/advanced
 
 The following query was performed Feb 22, 2022 at 1:57pm
 
-Search ("electron transport chain"[Assay Description] OR "mitochondrial complex"[Assay Description] OR "mitochondrial respiratory chain"[Assay Description] OR "mitochondrial membrane potential"[Assay Description]) AND (small_molecule[filt])
-
+Search
+```
+   ( "electron transport chain"[Assay Description] OR
+     "mitochondrial complex"[Assay Description] OR
+     "mitochondrial respiratory chain"[Assay Description] OR
+     "mitochondrial membrane potential"[Assay Description] ) AND
+    ( small_molecule[filt] )
+```
 This returns a list of 8415 AIDs that can be downloaed ('pcassay_result.txt'). To download, results:
-
+```
 Click "Send to:', 
     Choose Destination: "File", 
     Format:"Summary (text)', 
     Sort by: "Default order"
     Click: "Create File"
-
+```
 This will include all chemical screening assays having any of the oxphos-related search terms in their Assay Description. 
-    
-###############
 
-    2022-02-22
-    total substance records:
-    unique CIDs:
-    unique AIDs:  8418 assays,  8415 chemical screens
-    unique murcko:
-    unique gen murcko:
 
-    2019-06-28
-    total substance records: 361124
-    unique CIDs:		308531
-    unique AIDs:		4641
-    unique murcko:	108785 
-    unique gen murcko:	47200
-
-###############
 activate cheminformatics python env with conda package manager
 ```
 conda activate py38_chem
