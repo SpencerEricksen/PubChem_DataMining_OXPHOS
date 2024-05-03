@@ -66,7 +66,8 @@ merge all assay data, keep relevant data columns, dump as a pickle (pickle maint
 ```
 python ./source/merge_aid_records.py
 ```
-in: "AIDs/pcba-aid*.csv"
+in: "AIDs/pcba-aid*.csv"   
+
 out: "oxphos_merged_aids_records.pkl"
 
 
@@ -74,8 +75,9 @@ build xml files for bulk query of all unique CIDs in merged assay data set
 ```
 python ./source/write_cgi_for_cid_fetch_v1.4.py
 ```
-  in: "oxphos_merged_aids_records.pkl"  gets the set of all assayed CIDs
- out: pc_fetch_all_0.cgi, pc_fetch_all_1.cgi, (pc_fetch query files for all CIDs in 2 batches)
+   in: "oxphos_merged_aids_records.pkl"  gets the set of all assayed CIDs
+   
+   out: pc_fetch_all_0.cgi, pc_fetch_all_1.cgi, (pc_fetch query files for all CIDs in 2 batches)
 
 
 now run the SMILES fetches for all unique CIDs (did this in 2 batches due to limit on number of CIDs per request)
