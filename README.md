@@ -67,7 +67,6 @@ merge all assay data, keep relevant data columns, dump as a pickle (pickle maint
 python ./source/merge_aid_records.py
 ```
 in: "AIDs/pcba-aid*.csv"   
-
 out: "oxphos_merged_aids_records.pkl"
 
 
