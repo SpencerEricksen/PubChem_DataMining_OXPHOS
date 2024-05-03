@@ -1,18 +1,62 @@
-# activate cheminformatics python env with conda package manager
+
+# Pipeline for compiling PubChem BioAssay data for compounds with deposited testing outcomes in OXPHOS-related assays.
+
+Here, we applied the pipeline to acquire compound testing data from PubChem. Data are pulled from assays related to the OXPHOS pathway. This includes a wide variety of assays involving different biochemical targets, whole cells, etc.  
+
+The pipeline begins with a search using key word terms in the 'Assay Description' to identify assays potentially related to OXPHOS pathway. Here is the site for structuring and submitting your query:
+https://www.ncbi.nlm.nih.gov/pcassay/advanced
+
+The following query was performed Feb 22, 2022 at 1:57pm
+
+Search ("electron transport chain"[Assay Description] OR "mitochondrial complex"[Assay Description] OR "mitochondrial respiratory chain"[Assay Description] OR "mitochondrial membrane potential"[Assay Description]) AND (small_molecule[filt])
+
+This returns a list of 8415 AIDs that can be downloaed ('pcassay_result.txt'). To download, results:
+
+Click "Send to:', 
+    Choose Destination: "File", 
+    Format:"Summary (text)', 
+    Sort by: "Default order"
+    Click: "Create File"
+
+This will include all chemical screening assays having any of the oxphos-related search terms in their Assay Description. 
+    
+###############
+
+    2022-02-22
+    total substance records:
+    unique CIDs:
+    unique AIDs:  8418 assays,  8415 chemical screens
+    unique murcko:
+    unique gen murcko:
+
+    2019-06-28
+    total substance records: 361124
+    unique CIDs:		308531
+    unique AIDs:		4641
+    unique murcko:	108785 
+    unique gen murcko:	47200
+
+###############
+activate cheminformatics python env with conda package manager
+```
 conda activate py38_chem
+```
 
-# download pcassay_result.txt as "pcaassay_result_summary_2022-02-22.txt"
+download pcassay_result.txt as "pcaassay_result_summary_2022-02-22.txt"
 
-# get AIDs from pcassay results--the following produces same output as 
-# direct download of AID list "pcassay_result_UIlist_2022-02-22.txt"
+get AIDs from pcassay results--the following produces same output as 
+direct download of AID list "pcassay_result_UIlist_2022-02-22.txt"
+```
 grep AID: pcassay_result_summary_2022-02-22.txt | awk '{print $2}' > assay_list.list
+```
 
-
-# download assay data for assays in list
+download assay data for assays in list
+```
 export PATH="${PWD}/source:"$PATH
 mkdir AIDs
 nohup python ./source/get_bioassay_data_v1.4.py assay_list.list > get_bioassay_data_v1.4.log 2>&1 &
-# writes data files for each assay in AID folder like this ./AID/pcba-aidXXXXX.csv
+```
+writes data files for each assay in AID folder like this ./AID/pcba-aidXXXXX.csv
 
 
 # get the number of cpds tested in each assay
