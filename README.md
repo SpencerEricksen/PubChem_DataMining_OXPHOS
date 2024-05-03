@@ -75,7 +75,7 @@ build xml files for bulk query of all unique CIDs in merged assay data set
 python ./source/write_cgi_for_cid_fetch_v1.4.py
 ```
    in: "oxphos_merged_aids_records.pkl"  gets the set of all assayed CIDs   
-   out: pc_fetch_all_0.cgi, pc_fetch_all_1.cgi, (pc_fetch query files for all CIDs in 2 batches)
+   out: "pc_fetch_all_0.cgi", "pc_fetch_all_1.cgi" (pc_fetch query files for all CIDs in 2 batches)
 
 
 now run the SMILES fetches for all unique CIDs (did this in 2 batches due to limit on number of CIDs per request)
@@ -104,8 +104,8 @@ get assay descriptions and metadata associated with the AIDs (.xml file for each
 ```
 ./source/curl_xml_download_wrapper.sh assay_list.list
 ```
-  in: assay_list.list    
- out: ./assay_descriptions/XXXXX.xml    (file for each AID XXXXX)   
+  in: "assay_list.list"    
+ out: "./assay_descriptions/XXXXX.xml"    (file for each AID XXXXX)   
 
 extract relevant fields from the downloaded .xml AID descriptions
 ```
@@ -121,114 +121,114 @@ merge assay descriptions into my compound activity data frame
 ```
 python ./source/merge_assaydesc_v1.2.py
 ```
-  in: 'oxphos_merged_aids_cids_clnsmi.pkl', './assay_descriptions/all_assays_desc.csv'    
- out: 'oxphos_merged_aids_cids_clnsmi_assaydesc.pkl'    
+  in: "oxphos_merged_aids_cids_clnsmi.pkl", "./assay_descriptions/all_assays_desc.csv"    
+ out: "oxphos_merged_aids_cids_clnsmi_assaydesc.pkl"    
 
 
 add flag for ETC-linked terms in assay names, Titles, or Abstracts
 ```
 python ./source/add_flag_ETC-linked_assay_desc.py
 ```
-  in: 'oxphos_merged_aids_cids_clnsmi_assaydesc.pkl'   
- out: 'oxphos_merged_aids_cids_clnsmi_assaydesc_ETCassay.pkl'   
+  in: "oxphos_merged_aids_cids_clnsmi_assaydesc.pkl"   
+ out: "oxphos_merged_aids_cids_clnsmi_assaydesc_ETCassay.pkl"   
 
 
 add flag for ETC-linked PMID (paper)
 ```
 python ./source/add_flag_ETC-linked_PMID.py
 ```
-  in: 'oxphos_merged_aids_cids_clnsmi_assaydesc_ETCassay.pkl'   
- out: 'oxphos_merged_aids_cids_clnsmi_assaydesc_ETCassay_pmid.pkl'   
+  in: "oxphos_merged_aids_cids_clnsmi_assaydesc_ETCassay.pkl"   
+ out: "oxphos_merged_aids_cids_clnsmi_assaydesc_ETCassay_pmid.pkl"   
 
 
 isolate the molecule set for descriptor generations and pains/tox flags, save to pickle
 ```
 python get_unique_pubchem_cids.py
 ```
-  in: 'oxphos_merged_aids_cids_clnsmi_assaydesc_ETCassay_pmid.pkl'   
- out: 'unique_pubchem_cids.pkl'   
+  in: "oxphos_merged_aids_cids_clnsmi_assaydesc_ETCassay_pmid.pkl"   
+ out: "unique_pubchem_cids.pkl"   
 
 
 determine Bemis-Murcko scaffolds and reduced Murcko scaffolds (carbon frames)
 ```
 python ./source/get_scaffolds.py
 ```
-  in: 'unique_pubchem_cids.pkl'   
- out: 'unique_pubchem_cids_scaffolds.pkl'   
+  in: "unique_pubchem_cids.pkl"   
+ out: "unique_pubchem_cids_scaffolds.pkl"   
 
 
 get rdkit pains flags for cpd set  (note, this one takes a while--20minutes?)
 ```
 nohup python ./source/rdkit_add_pains_flags.py unique_pubchem_cids.pkl unique_pubchem_cids_pains.pkl > rdkit_add_pains_flags.log 2>&1 &
 ```
-  in: 'unique_pubchem_cids.pkl'   
- out: 'unique_pubchem_cids_pains.pkl'   
+  in: "unique_pubchem_cids.pkl"   
+ out: "unique_pubchem_cids_pains.pkl"   
 
 
 get morgan fingerprint features for cpd set
 ```
 nohup python source/rdkit_get_morgan_fps.py > rdkit_get_morgan_fps.log 2>&1 &
 ```
-  in: 'unique_pubchem_cids.pkl'   
- out: 'unique_pubchem_cids_fps.pkl'   
+  in: "unique_pubchem_cids.pkl"   
+ out: "unique_pubchem_cids_fps.pkl"   
 
 
 get descriptors for cpd set
 ```
 nohup python source/rdkit_calc_mol_descriptors.py > rdkit_calc_mol_descriptors.log 2>&1 &
 ```
-  in: 'unique_pubchem_cids.pkl'   
- out: 'unique_pubchem_cids_desc.pkl'   
+  in: "unique_pubchem_cids.pkl"   
+ out: "unique_pubchem_cids_desc.pkl"   
 
 
 get NPscores for cpd set
 ```
 python ./source/npscorer_v1.2.py unique_pubchem_cids.pkl unique_pubchem_cids_npscores.pkl
 ```
-  in: 'unique_pubchem_cids.pkl'   
- out: 'unique_pubchem_cids_npscores.pkl'   
+  in: "unique_pubchem_cids.pkl"   
+ out: "unique_pubchem_cids_npscores.pkl"   
 
 
 get Lipinski flags for cpd set
 ```
 python ./source/rdkit_add_lipinski_flags.py
 ```
-  in: 'unique_pubchem_cids.pkl'   
- out: 'unique_pubchem_cids_lipinski.pkl'   
+  in: "unique_pubchem_cids.pkl"   
+ out: "unique_pubchem_cids_lipinski.pkl"   
 
 
 get complete assay results for each molecule in cpd set
 ```
 python ./source/compile_add_bioassay_results.py
 ```
-  in: 'oxphos_merged_aids_cids_clnsmi_assaydesc_ETCassay_pmid.pkl', 'unique_pubchem_cids.pkl'   
- out: 'unique_pubchem_cids_complete_assay_results.pkl'   
+  in: "oxphos_merged_aids_cids_clnsmi_assaydesc_ETCassay_pmid.pkl", "unique_pubchem_cids.pkl"   
+ out: "unique_pubchem_cids_complete_assay_results.pkl"   
 
 
 assign activity labels to the cpd set
 ```
 python ./source/assign_cpd_oxphos_activity_labels.py
 ```
-  in: 'unique_pubchem_cids_complete_assay_results.pkl'   
- out: 'unique_pubchem_cids_complete_assay_results_w_labels.pkl'   
+  in: "unique_pubchem_cids_complete_assay_results.pkl"   
+ out: "unique_pubchem_cids_complete_assay_results_w_labels.pkl"   
 
 
 merge all cpd data into one dataframe
 ```
 python ./source/merge_cpd_data.py
 ```
-  in: 'unique_pubchem_cids_complete_assay_results_w_labels.pkl', 'unique_pubchem_cids_desc.pkl',    
-  in: 'unique_pubchem_cids_fps.pkl', 'unique_pubchem_cids_lipinski.pkl', 'unique_pubchem_cids_npscores.pkl',   
-  in: 'unique_pubchem_cids_pains.pkl', 'unique_pubchem_cids_scaffolds.pkl'   
- out: 'unique_pubchem_cids_all.pkl'   
+  in: "unique_pubchem_cids_complete_assay_results_w_labels.pkl", "unique_pubchem_cids_desc.pkl",    
+  in: "unique_pubchem_cids_fps.pkl", "unique_pubchem_cids_lipinski.pkl", "unique_pubchem_cids_npscores.pkl",   
+  in: "unique_pubchem_cids_pains.pkl", "unique_pubchem_cids_scaffolds.pkl"   
+ out: "unique_pubchem_cids_all.pkl"   
 
 
 add cluster labels to the active cpds
 ```
 python ./source/cluster_oxphos_actives_scipy_HAC.py
 ```
-  in: 'unique_pubchem_cids_all.pkl'   
- out: 'unique_pubchem_cids_all_wclusts.pkl'   
+  in: "unique_pubchem_cids_all.pkl"   
+ out: "unique_pubchem_cids_all_wclusts.pkl"   
 
 
 build training data with labeled actives/inactives
