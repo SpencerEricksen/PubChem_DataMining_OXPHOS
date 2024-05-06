@@ -8,7 +8,7 @@ https://www.ncbi.nlm.nih.gov/pcassay/advanced
 
 The following query was performed Feb 22, 2022 at 1:57pm
 
-Search
+Here is the search:
 ```
    ( "electron transport chain"[Assay Description] OR
      "mitochondrial complex"[Assay Description] OR
@@ -16,7 +16,7 @@ Search
      "mitochondrial membrane potential"[Assay Description] ) AND
     ( small_molecule[filt] )
 ```
-This returns a list of 8415 AIDs that can be downloaed ('pcassay_result.txt'). To download, results:
+This returned a list of 8415 AIDs that were downloaded ('pcassay_result.txt'). To download, results:
 ```
 Click "Send to:', 
     Choose Destination: "File", 
@@ -24,7 +24,7 @@ Click "Send to:',
     Sort by: "Default order"
     Click: "Create File"
 ```
-This will include all chemical screening assays having any of the oxphos-related search terms in their Assay Description. 
+This search included all chemical screening assays having any of the oxphos-related search terms in their \[Assay Description\]. 
 
 
 activate cheminformatics python env with conda package manager
