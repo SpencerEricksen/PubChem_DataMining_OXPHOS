@@ -1,0 +1,13 @@
+running logistic regression as simple classifiers
+
+comparing L1 and L2 regularization (lasso vs. ridge)
+
+L1 better for dropping out non-relevant features
+L2 better for handling correlated features?
+
+also comparing compound repreosentations--fingerprints vs. descriptors
+fps = morgan radius=2, length=2048
+rdkit molecular descriptors (207) -- transformed by StandardScaler fit on training data
+
+
+

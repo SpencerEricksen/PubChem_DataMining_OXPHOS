@@ -1,0 +1,37 @@
+
+
+# now, let's try running L1 on fps (use SAGA solver, max_iter = 200)
+python logistic_regression_all.py fps l1 1> logistic_regression_all_L1_fps_saga.log 2> logistic_regression_all_L1_fps_saga.err &
+
+# and L1 using descriptors (again, use SAGA solver and max_iter=200)
+python logistic_regression_all.py desc l1 1> logistic_regression_all_L1_desc_sage.log 2> logistic_regression_all_L1_desc_saga.err &
+
+# like the SAGA solver--much faster, let's try it with L2 regularization and descriptors
+python logistic_regression_all.py desc l2 1> logistic_regression_all_L2_desc_saga.log 2> logistic_regression_all_L2_desc_saga.err &
+
+# and finally, using SAGA solver, do LR with L2 reg and fingerprints (fps)
+python logistic_regression_all.py fps l2 > logistic_regression_all_L2_fps_saga.log 2> logistic_regression_all_L2_fps_saga.err &
+
+
+
+python evaluate_model_on_test_data_v1.1.py fps model_l2_saga_C0.04642_fps.pkl
+python evaluate_model_on_test_data_v1.1.py fps model_l1_saga_C0.04642_fps.pkl
+
+python evaluate_model_on_test_data_v1.1.py desc model_l2_saga_C1291.54967_desc.pkl
+python evaluate_model_on_test_data_v1.1.py desc model_l1_saga_C21.54435_desc.pkl
+
+
+model,balanced_acc,avg_prec,roc_auc,F1
+model_l2_saga_C0.04642_fps.pkl 0.835694799289828 0.3642649987044157 0.9001339850884276 0.11898512685914261
+model_l1_saga_C0.04642_fps.pkl 0.8465655070758222 0.3353251553537095 0.9055062097588353 0.17235345581802272
+model_l2_saga_C1291.54967_desc.pkl 0.844666450999921 0.234197603801681 0.9045704368440314 0.11784511784511785
+model_l1_saga_C21.54435_desc.pkl 0.8443200256762299 0.23342202349215413 0.904524926066213 0.11731843575418995
+
+
+
+# tried to run "both" features in L2 but RAM overfilled on Kahless
+python logistic_regression_all_v1.1.py both l2 1> logistic_regression_all_L2_both_saga.log 2> logistic_regression_all_L2_both_saga.err &
+
+# trying again on cytron
+python logistic_regression_all_v1.1.py l1 1> logistic_regression_all_L1_both_saga.log 2> logistic_regression_all_L1_both_saga.err &
+python logistic_regression_all_v1.1.py both l1 1> logistic_regression_all_L1_both_saga.log 2> logistic_regression_all_L1_both_saga.err &

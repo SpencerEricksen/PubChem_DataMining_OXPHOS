@@ -1,0 +1,18 @@
+
+# evaluate optimized LR models on held-out data set, get metrics
+
+python evaluate_model_on_test_data_v1.3.py desc model_l1_saga_C21.54435_desc.pkl ../data/old_85_15_split/test_data.pkl
+python evaluate_model_on_test_data_v1.3.py desc model_l2_saga_C1291.54967_desc.pkl ../data/old_85_15_split/test_data.pkl
+
+python evaluate_model_on_test_data_v1.3.py fps model_l1_saga_C0.04642_fps.pkl ../data/old_85_15_split/test_data.pkl
+python evaluate_model_on_test_data_v1.3.py fps model_l2_saga_C0.04642_fps.pkl ../data/old_85_15_split/test_data.pkl
+
+python evaluate_model_on_test_data_v1.3.py both model_l1_saga_C0.35938_both.pkl ../data/old_85_15_split/test_data.pkl
+python evaluate_model_on_test_data_v1.3.py both model_l2_saga_C0.00599_both.pkl ../data/old_85_15_split/test_data.pkl
+
+
+# note, might not interested in EF0.1 or NEF0.1 since these only involve like 22-23 cpds or so
+
+# NEF1 and EF1 involve 1% of 22,000 (roughly 220)
+
+

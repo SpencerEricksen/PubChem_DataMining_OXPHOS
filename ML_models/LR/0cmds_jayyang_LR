@@ -1,0 +1,17 @@
+
+# tried to run "both" features in L2 but RAM overfilled on Kahless
+python logistic_regression_all_v1.1.py both l2 1> logistic_regression_all_L2_both_saga.log 2> logistic_regression_all_L2_both_saga.err &
+
+# trying again on cytron
+python logistic_regression_all_v1.1.py l1 1> logistic_regression_all_L1_both_saga.log 2> logistic_regression_all_L1_both_saga.err &
+python logistic_regression_all_v1.1.py both l1 1> logistic_regression_all_L1_both_saga.log 2> logistic_regression_all_L1_both_saga.err &
+
+# sklearnex supposed to be 10-100X faster? https://intel.github.io/scikit-learn-intelex/
+
+# created a new anaconda install on jayyang and a new conda cheminfromatics environment called py310_chem (python 3.10)
+ 
+# trying scikit-learn-intelex on jayyang!!! (64GB RAM, using >46GB when running both of these below)
+# jayyang has 40 threads, 20 cores, but it looks like we are running 5 threads per job as we did on cytron  
+python -m sklearnex logistic_regression_all_v1.1.py both l2 1> lr_both_L2.log 2> lr_both_L2.err &
+python -m sklearnex logistic_regression_all_v1.1.py both l1 1> lr_both_L1.log 2> lr_both_L1.err &
+
