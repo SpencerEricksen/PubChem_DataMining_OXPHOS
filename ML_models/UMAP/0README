@@ -1,0 +1,28 @@
+https://umap-learn.readthedocs.io/en/latest/
+
+conda install -c conda-forge umap-learn
+
+
+
+
+# need to find optimal parameters for UMAP
+
+# use the script plot_umap_all_v1.3.py to do a grid search of the 2 parameters:
+
+- number_neighbors (nn)
+- min_dist (md)
+
+
+# after looking through these, I decided to use NN=50, md=0.250 as best setting
+# to make this reproducible, I need to check random number seed
+
+# to get UMAP coords for this setting, I ran "plot_umap_all_final_v1.4.py"
+# which dumps pickle with UMAP coords for cpds for NN=50, and md=0.250
+
+
+# I see that the umap transformer that I use to compute the chemical space map
+# was not saved in the original code and must be re-computed if you want to 
+# map new compounds in this original space.  Therefore, I added lines to save 
+# the umap transformer as a pickle to use again later. 
+# see https://github.com/lmcinnes/umap/issues/178
+

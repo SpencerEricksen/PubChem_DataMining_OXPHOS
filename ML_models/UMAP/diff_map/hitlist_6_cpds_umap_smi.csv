@@ -1,0 +1,7 @@
+compound_name,cpd_number,PUBCHEM_CID,X,Y,label,clustid_0.750,clustpop_0.750,clustmedoid_0.750,rdkit_smiles_cln
+oryzalin,0,29393,-1.6042093,-1.1301033,1,423,13,0,CCCN(CCC)c1c([N+](=O)[O-])cc(S(N)(=O)=O)cc1[N+](=O)[O-]
+allethrin,2,11442,0.7607973,4.3789353,1,41,4,0,C=CCC1=C(C)C(OC(=O)C2C(C=C(C)C)C2(C)C)CC1=O
+coumatetralyl,4,54678504,2.8665586,0.83841515,1,383,5,0,O=c1oc2ccccc2c(O)c1C1CCCc2ccccc21
+allylestrenol,1,235905,2.470644,4.796493,1,27,8,0,C=CC[C@]1(O)CC[C@H]2[C@@H]3CCC4=CCCC[C@@H]4[C@H]3CC[C@@]21C
+lacidipine,3,5311217,0.5775582,5.413133,1,295,3,0,CCOC(=O)C1=C(C)NC(C)=C(C(=O)OCC)C1c1ccccc1/C=C/C(=O)OC(C)(C)C
+CCMP,5,929418,0.12695424,2.2986128,1,84,9,1,N#C/C(=C\c1ccc(N2CCOCC2)o1)C(=O)NC1CCCCC1

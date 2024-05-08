@@ -1,0 +1,6 @@
+# plot simple difference map (n_actives=1859 vs. n_inactives=155XXX)
+nohup python diff_umap_kdes.py > diff_umap_kdes.log 2>&1 &
+
+# plot KDE for full cpd set (N=XXX,XXX)
+nohup python all_umap_kde.py > all_umap_kde.log 2>&1 &
+
