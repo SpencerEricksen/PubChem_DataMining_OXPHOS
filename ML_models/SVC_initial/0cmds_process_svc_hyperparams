@@ -1,0 +1,11 @@
+# compile all of the hyper param tests
+cat SVC/*logger* > svc_hyperparam_search.csv
+
+# remove header lines 
+vi svc_hyperparam_search.csv
+# use the following command in vim
+2,$g/c_kernel/d
+
+# process and sort the hyperparam data
+python process_svc_hyperparam_eval.py svc_hyperparam_search.csv svc_hyperparam_search_sorted.csv
+

@@ -1,0 +1,4 @@
+nohup python -m sklearnex svc_opt1_general_cytron.py desc poly 1> svc_opt1_desc_poly.log 2> svc_opt1_desc_poly.err &
+nohup python -m sklearnex svc_opt1_general_cytron.py desc sigmoid 1> svc_opt1_desc_sigmoid.log 2> svc_opt1_desc_sigmoid.err &
+nohup python -m sklearnex svc_opt2_tanimoto.py fps 1> svc_opt2_fps_tanimoto.log 2> svc_opt2_fps_tanimoto.log &
+

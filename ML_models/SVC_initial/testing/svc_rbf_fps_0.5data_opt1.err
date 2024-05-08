@@ -1,0 +1,450 @@
+nohup: ignoring input
+Intel(R) Extension for Scikit-learn* enabled (https://github.com/intel/scikit-learn-intelex)
+/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py:378: FitFailedWarning: 
+1 fits failed out of a total of 5.
+The score on these train-test partitions for these parameters will be set to nan.
+If these failures are not expected, you can try to debug them by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+1 fits failed with the following error:
+Traceback (most recent call last):
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 686, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 85, in fit
+    dispatch(self, 'svm.SVC.fit', {
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/_device_offload.py", line 163, in dispatch
+    return branches[backend](obj, *hostargs, **hostkwargs, queue=q)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 215, in _onedal_fit
+    self._fit_proba(X, y, sample_weight, queue=queue)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/_common.py", line 92, in _fit_proba
+    self.clf_prob.fit(X, y, sample_weight)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 428, in fit
+    predictions = _compute_predictions(
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 641, in _compute_predictions
+    predictions = pred_method(X=X)
+                  ^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 986, in cross_val_predict
+    predictions = parallel(
+                  ^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/utils/parallel.py", line 63, in __call__
+    return super().__call__(iterable_with_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 1098, in __call__
+    self.retrieve()
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 975, in retrieve
+    self._output.extend(job.get(timeout=self.timeout))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/_parallel_backends.py", line 567, in wrap_future_result
+    return future.result(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+The exit codes of the workers are {SIGKILL(-9)}
+
+  warnings.warn(some_fits_failed_message, FitFailedWarning)
+/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py:378: FitFailedWarning: 
+1 fits failed out of a total of 5.
+The score on these train-test partitions for these parameters will be set to nan.
+If these failures are not expected, you can try to debug them by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+1 fits failed with the following error:
+Traceback (most recent call last):
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 686, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 85, in fit
+    dispatch(self, 'svm.SVC.fit', {
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/_device_offload.py", line 163, in dispatch
+    return branches[backend](obj, *hostargs, **hostkwargs, queue=q)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 215, in _onedal_fit
+    self._fit_proba(X, y, sample_weight, queue=queue)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/_common.py", line 92, in _fit_proba
+    self.clf_prob.fit(X, y, sample_weight)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 428, in fit
+    predictions = _compute_predictions(
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 641, in _compute_predictions
+    predictions = pred_method(X=X)
+                  ^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 986, in cross_val_predict
+    predictions = parallel(
+                  ^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/utils/parallel.py", line 63, in __call__
+    return super().__call__(iterable_with_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 1098, in __call__
+    self.retrieve()
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 975, in retrieve
+    self._output.extend(job.get(timeout=self.timeout))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/_parallel_backends.py", line 567, in wrap_future_result
+    return future.result(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+The exit codes of the workers are {SIGKILL(-9)}
+
+  warnings.warn(some_fits_failed_message, FitFailedWarning)
+/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py:378: FitFailedWarning: 
+1 fits failed out of a total of 5.
+The score on these train-test partitions for these parameters will be set to nan.
+If these failures are not expected, you can try to debug them by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+1 fits failed with the following error:
+Traceback (most recent call last):
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 686, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 85, in fit
+    dispatch(self, 'svm.SVC.fit', {
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/_device_offload.py", line 163, in dispatch
+    return branches[backend](obj, *hostargs, **hostkwargs, queue=q)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 215, in _onedal_fit
+    self._fit_proba(X, y, sample_weight, queue=queue)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/_common.py", line 92, in _fit_proba
+    self.clf_prob.fit(X, y, sample_weight)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 428, in fit
+    predictions = _compute_predictions(
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 641, in _compute_predictions
+    predictions = pred_method(X=X)
+                  ^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 986, in cross_val_predict
+    predictions = parallel(
+                  ^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/utils/parallel.py", line 63, in __call__
+    return super().__call__(iterable_with_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 1098, in __call__
+    self.retrieve()
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 975, in retrieve
+    self._output.extend(job.get(timeout=self.timeout))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/_parallel_backends.py", line 567, in wrap_future_result
+    return future.result(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+The exit codes of the workers are {SIGKILL(-9)}
+
+  warnings.warn(some_fits_failed_message, FitFailedWarning)
+/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py:378: FitFailedWarning: 
+1 fits failed out of a total of 5.
+The score on these train-test partitions for these parameters will be set to nan.
+If these failures are not expected, you can try to debug them by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+1 fits failed with the following error:
+Traceback (most recent call last):
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 686, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 85, in fit
+    dispatch(self, 'svm.SVC.fit', {
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/_device_offload.py", line 163, in dispatch
+    return branches[backend](obj, *hostargs, **hostkwargs, queue=q)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 215, in _onedal_fit
+    self._fit_proba(X, y, sample_weight, queue=queue)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/_common.py", line 92, in _fit_proba
+    self.clf_prob.fit(X, y, sample_weight)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 428, in fit
+    predictions = _compute_predictions(
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 641, in _compute_predictions
+    predictions = pred_method(X=X)
+                  ^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 986, in cross_val_predict
+    predictions = parallel(
+                  ^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/utils/parallel.py", line 63, in __call__
+    return super().__call__(iterable_with_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 1098, in __call__
+    self.retrieve()
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 975, in retrieve
+    self._output.extend(job.get(timeout=self.timeout))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/_parallel_backends.py", line 567, in wrap_future_result
+    return future.result(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+The exit codes of the workers are {SIGKILL(-9)}
+
+  warnings.warn(some_fits_failed_message, FitFailedWarning)
+/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py:378: FitFailedWarning: 
+2 fits failed out of a total of 5.
+The score on these train-test partitions for these parameters will be set to nan.
+If these failures are not expected, you can try to debug them by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+2 fits failed with the following error:
+Traceback (most recent call last):
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 686, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 85, in fit
+    dispatch(self, 'svm.SVC.fit', {
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/_device_offload.py", line 163, in dispatch
+    return branches[backend](obj, *hostargs, **hostkwargs, queue=q)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 215, in _onedal_fit
+    self._fit_proba(X, y, sample_weight, queue=queue)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/_common.py", line 92, in _fit_proba
+    self.clf_prob.fit(X, y, sample_weight)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 428, in fit
+    predictions = _compute_predictions(
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 641, in _compute_predictions
+    predictions = pred_method(X=X)
+                  ^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 986, in cross_val_predict
+    predictions = parallel(
+                  ^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/utils/parallel.py", line 63, in __call__
+    return super().__call__(iterable_with_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 1098, in __call__
+    self.retrieve()
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 975, in retrieve
+    self._output.extend(job.get(timeout=self.timeout))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/_parallel_backends.py", line 567, in wrap_future_result
+    return future.result(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+The exit codes of the workers are {SIGKILL(-9)}
+
+  warnings.warn(some_fits_failed_message, FitFailedWarning)
+/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py:378: FitFailedWarning: 
+4 fits failed out of a total of 5.
+The score on these train-test partitions for these parameters will be set to nan.
+If these failures are not expected, you can try to debug them by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+3 fits failed with the following error:
+Traceback (most recent call last):
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 686, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 85, in fit
+    dispatch(self, 'svm.SVC.fit', {
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/_device_offload.py", line 163, in dispatch
+    return branches[backend](obj, *hostargs, **hostkwargs, queue=q)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 215, in _onedal_fit
+    self._fit_proba(X, y, sample_weight, queue=queue)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/_common.py", line 92, in _fit_proba
+    self.clf_prob.fit(X, y, sample_weight)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 428, in fit
+    predictions = _compute_predictions(
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 641, in _compute_predictions
+    predictions = pred_method(X=X)
+                  ^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 986, in cross_val_predict
+    predictions = parallel(
+                  ^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/utils/parallel.py", line 63, in __call__
+    return super().__call__(iterable_with_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 1085, in __call__
+    if self.dispatch_one_batch(iterator):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 901, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 819, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/_parallel_backends.py", line 556, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/reusable_executor.py", line 176, in submit
+    return super().submit(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py", line 1149, in submit
+    self._ensure_executor_running()
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py", line 1123, in _ensure_executor_running
+    self._adjust_process_count()
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py", line 1111, in _adjust_process_count
+    p.start()
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+                  ^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/backend/process.py", line 32, in _Popen
+    return Popen(process_obj)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/backend/popen_loky_posix.py", line 46, in __init__
+    self._launch(process_obj)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/backend/popen_loky_posix.py", line 124, in _launch
+    pid = fork_exec(cmd_python, self._fds, env=process_obj.env)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/backend/fork_exec.py", line 37, in fork_exec
+    pid = os.fork()
+          ^^^^^^^^^
+OSError: [Errno 12] Cannot allocate memory
+
+--------------------------------------------------------------------------------
+1 fits failed with the following error:
+Traceback (most recent call last):
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 686, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 85, in fit
+    dispatch(self, 'svm.SVC.fit', {
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/_device_offload.py", line 163, in dispatch
+    return branches[backend](obj, *hostargs, **hostkwargs, queue=q)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 215, in _onedal_fit
+    self._fit_proba(X, y, sample_weight, queue=queue)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/_common.py", line 92, in _fit_proba
+    self.clf_prob.fit(X, y, sample_weight)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 428, in fit
+    predictions = _compute_predictions(
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 641, in _compute_predictions
+    predictions = pred_method(X=X)
+                  ^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 986, in cross_val_predict
+    predictions = parallel(
+                  ^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/utils/parallel.py", line 63, in __call__
+    return super().__call__(iterable_with_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 1098, in __call__
+    self.retrieve()
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 975, in retrieve
+    self._output.extend(job.get(timeout=self.timeout))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/_parallel_backends.py", line 567, in wrap_future_result
+    return future.result(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+The exit codes of the workers are {SIGKILL(-9)}
+
+  warnings.warn(some_fits_failed_message, FitFailedWarning)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/__main__.py", line 55, in <module>
+    sys.exit(_main())
+             ^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/__main__.py", line 52, in _main
+    runf(args.name, run_name='__main__')
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "svc_opt1_fps.py", line 93, in <module>
+    scores = cross_validate( model, X, y, scoring=('balanced_accuracy','average_precision','roc_auc','f1'), cv=5 )
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 285, in cross_validate
+    _warn_or_raise_about_fit_failures(results, error_score)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 367, in _warn_or_raise_about_fit_failures
+    raise ValueError(all_fits_failed_message)
+ValueError: 
+All the 5 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+5 fits failed with the following error:
+Traceback (most recent call last):
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 686, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 85, in fit
+    dispatch(self, 'svm.SVC.fit', {
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/_device_offload.py", line 163, in dispatch
+    return branches[backend](obj, *hostargs, **hostkwargs, queue=q)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/svc.py", line 215, in _onedal_fit
+    self._fit_proba(X, y, sample_weight, queue=queue)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearnex/svm/_common.py", line 92, in _fit_proba
+    self.clf_prob.fit(X, y, sample_weight)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 428, in fit
+    predictions = _compute_predictions(
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/calibration.py", line 641, in _compute_predictions
+    predictions = pred_method(X=X)
+                  ^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/model_selection/_validation.py", line 986, in cross_val_predict
+    predictions = parallel(
+                  ^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/sklearn/utils/parallel.py", line 63, in __call__
+    return super().__call__(iterable_with_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 1085, in __call__
+    if self.dispatch_one_batch(iterator):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 901, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/parallel.py", line 819, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/_parallel_backends.py", line 556, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/reusable_executor.py", line 176, in submit
+    return super().submit(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py", line 1149, in submit
+    self._ensure_executor_running()
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py", line 1123, in _ensure_executor_running
+    self._adjust_process_count()
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/process_executor.py", line 1111, in _adjust_process_count
+    p.start()
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+                  ^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/backend/process.py", line 32, in _Popen
+    return Popen(process_obj)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/backend/popen_loky_posix.py", line 46, in __init__
+    self._launch(process_obj)
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/backend/popen_loky_posix.py", line 124, in _launch
+    pid = fork_exec(cmd_python, self._fds, env=process_obj.env)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ssericksen/anaconda3/envs/py310_chem/lib/python3.11/site-packages/joblib/externals/loky/backend/fork_exec.py", line 37, in fork_exec
+    pid = os.fork()
+          ^^^^^^^^^
+OSError: [Errno 12] Cannot allocate memory
+

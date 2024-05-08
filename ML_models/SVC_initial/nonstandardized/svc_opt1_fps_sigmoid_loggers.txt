@@ -1,0 +1,15 @@
+c_kernel_gamma_feats,bal_acc,(bal_acc),avg_prec,(avg_prec),roc_auc,(roc_auc),f1,(f1)
+0.001_sigmoid_degree3_scale_-1.0fps,0.500,0.000,0.307,0.020,0.882,0.013,0.005,0.010
+0.001_sigmoid_degree3_scale_0.0fps,0.611,0.026,0.171,0.017,0.860,0.013,0.193,0.087
+0.001_sigmoid_degree3_scale_0.3fps,0.505,0.005,0.151,0.017,0.855,0.013,0.023,0.018
+0.001_sigmoid_degree3_scale_1.0fps,0.500,0.000,0.132,0.017,0.848,0.013,0.005,0.010
+0.001_sigmoid_degree3_scale_3.0fps,0.500,0.000,0.125,0.017,0.846,0.013,0.005,0.010
+0.001_sigmoid_degree3_auto_-1.0fps,nan,nan,nan,nan,nan,nan,nan,nan
+0.001_sigmoid_degree3_auto_0.0fps,0.500,0.000,0.215,0.020,0.869,0.013,0.005,0.010
+0.001_sigmoid_degree3_auto_0.3fps,0.500,0.000,0.213,0.020,0.869,0.013,0.005,0.010
+0.001_sigmoid_degree3_auto_1.0fps,nan,nan,nan,nan,nan,nan,nan,nan
+0.001_sigmoid_degree3_auto_3.0fps,0.500,0.000,0.392,0.032,0.921,0.009,0.024,0.000
+0.001_sigmoid_degree3_0.1_-1.0fps,0.757,0.013,0.093,0.019,0.838,0.008,0.072,0.003
+0.001_sigmoid_degree3_0.1_0.0fps,0.709,0.023,0.064,0.013,0.783,0.011,0.075,0.006
+0.001_sigmoid_degree3_0.1_0.3fps,nan,nan,nan,nan,nan,nan,nan,nan
+0.001_sigmoid_degree3_0.1_1.0fps,nan,nan,nan,nan,nan,nan,nan,nan

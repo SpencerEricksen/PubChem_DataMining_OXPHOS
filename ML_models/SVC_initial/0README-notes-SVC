@@ -1,0 +1,22 @@
+bitstring chemical fingerprints can be used for kernel
+
+The Jaccard similarity is a proper symmetric distance function, positive-definite, and satisfies the triangle-inequality
+
+Kernels are measures of similarity: s(a,b) > s(a,c) then objects a and b are more similar than a and c.
+
+A distance metric can be converted to a similarity measure, such as a kernel.
+
+For Jaccard similarity (Js), the Jaccard distance or Jd:
+
+Jd = 1 - Js
+
+For SVC, a kernel function can be provided:
+
+# your kernel must take as arguments two matrices of shape (n_samples_1, n_features), (n_samples_2, n_features) and return a kernel matrix of shape (n_samples_1, n_samples_2).
+
+def my_kernel(a,b):
+    psim = jaccard_sim_matrix(a,b)       
+
+clf = svm.SVC( kernel=my_kernel )
+clf.fit(X,y)
+

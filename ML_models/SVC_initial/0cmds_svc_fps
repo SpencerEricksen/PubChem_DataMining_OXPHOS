@@ -1,0 +1,51 @@
+
+# try default with linear kernel using 25% of training data
+
+python -m sklearnex svc_test_fps.py fps
+Intel(R) Extension for Scikit-learn* enabled (https://github.com/intel/scikit-learn-intelex)
+
+model,balanced_acc,avg_prec,roc_auc,F1
+svc_default 0.7382535069195911 0.43858673755769795 0.8519632041965013 0.4795321637426901
+
+# try RBF kernel with 25% training data, C=100.0, gamma=0.001
+nohup python -m sklearnex svc_test_fps.py fps 1> svc_rbf_fps_test.log 2> svc_rbf_fps_test.err &
+model,balanced_acc,avg_prec,roc_auc,F1
+svc_rbf_gamma0.001_C100.0 0.7548274963213536 0.4829463284744562 0.8823464032475676 0.5458333333333334
+
+# try RBF kernel with 50% of training data, C=100, gamma=0.001
+nohup python -m sklearnex svc_test_fps.py fps > svc_rbf_fps_0.5data_test.log 2> svc_rbf_fps_0.5data_test.err
+model,balanced_acc,avg_prec,roc_auc,F1
+svc_rbf_gamma0.001_C100.0 0.7978564933096609 0.6008874797604286 0.9003204434244143 0.6035502958579881
+
+# RBF kernel, 100% training data, C=100, gamma=0.001
+nohup python -m sklearnex svc_test_fps.py fps > svc_rbf_fps_1.0data_test.log 2> svc_rbf_fps_1.0data_test.err
+model,balanced_acc,avg_prec,roc_auc,F1
+svc_rbf_gamma0.001_C100.0 0.8355011237595978 0.6790868458254952 0.9180229472813678 0.6771653543307087
+
+
+# okay, lets do a full hyperparam search (opt1) on 50% of training data (5-fold CV) using fps features
+nohup python -m sklearnex svc_opt1_fps.py fps 1> svc_rbf_fps_0.5data_opt1.log 2> svc_rbf_fps_0.5data_opt1.err &
+
+for c in [0.001, 0.01, 0.1, 1.0, 10., 100., 1000.]:
+    for k in ['rbf', 'poly', 'sigmoid', 'linear']:
+        for g in [ 'scale', 'auto', 0.1, 0.5 ]:
+
+total # models:  7*4*4 = 112 models
+each model config tested in 5-fold CV, so 5 * 112 = 560 SVC models trained!
+
+
+# run svc with available kernels (rbf, linear, poly, sigmoid)
+nohup python -m sklearnex svc_opt1_fps_rbf.py fps 1> svc_opt1_fps_rbf_0.33data.log 2> svc_opt1_fpss_rbf_0.33data.err &
+nohup python -m sklearnex svc_opt1_fps_linear.py fps 1> svc_opt1_fps_linear_0.33data.log 2> svc_opt1_fps_linear_0.33data.err &
+nohup python -m sklearnex svc_opt1_fps_poly.py fps 1> svc_opt1_fps_poly_0.33data.log 2> svc_opt1_fps_poly_0.33data.err &
+nohup python -m sklearnex svc_opt1_fps_sigmoid.py fps 1> svc_opt1_fps_sigmoid_0.33data.log 2> svc_opt1_fps_sigmoid_0.33data.err &
+
+# try standard scaling the fps training data--does SVC get better?
+nohup python -m sklearnex svc_opt1_fps_poly_stdscale.py fps 1> svc_opt1_fps_poly_stdscale_0.33data.log 2> svc_opt1_fps_poly_stdscale_0.33data.err &
+nohup python -m sklearnex svc_opt1_fps_sigmoid_stdscale.py fps 1> svc_opt1_fps_sigmoid_stdscale_0.33data.log 2> svc_opt1_fps_sigmoid_stdscale_0.33data.err &
+
+
+nohup python -m sklearnex svc_opt1_general_alacarte_poly.py both poly 1> svc_opt1_both_poly.log 2> svc_opt1_both_poly.err &
+nohup python -m sklearnex svc_opt1_general_alacarte_rbf.py fps rbf 1> svc_opt1_fps_rbf.log 2> svc_opt1_fps_rbf.err &
+nohup python -m sklearnex svc_opt1_general_alacarte_poly.py fps poly 1> svc_opt1_fps_poly_stdscale.log 2> svc_opt1_fps_poly_stdscale.err &
+
