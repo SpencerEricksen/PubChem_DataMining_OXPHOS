@@ -1,0 +1,18 @@
+https://machinelearningmastery.com/threshold-moving-for-imbalanced-classification/
+
+probably easiest approach is to pick model with optimal F1-score on training data
+
+use this threshold on test set and any new predictions.
+
+
+
+# let's run calibration and output probs, labels, and predicted labels with optimal threshold
+python calibrate_classifier.py fps ../RF/model_RF_fps_8000_1.0_none_0.0023.pkl
+
+RFC_model					opt_MCC_thresh_on_calib_set	opt_F1_thresh_on_calib_set
+model_RF_desc_8000_1.0_none_0.050.pkl		0.932				0.932	
+model_RF_fps_8000_1.0_none_0.0023.pkl		0.931				0.915
+model_RF_both_8000_1.0_none_0.0010.pkl		0.910				0.910
+
+
+

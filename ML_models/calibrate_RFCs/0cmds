@@ -1,0 +1,56 @@
+# find optimal threshold for RFC using fps based on F1-score
+python calibrate_classifier_f1.py fps ../RF/model_RF_fps_8000_1.0_none_0.0023_3way.pkl
+model:../RF/model_RF_fps_8000_1.0_none_0.0023_3way.pkl, feat_type:fps, threshold:0.915, F1:0.823
+
+
+# find optimal threshold for RFC using fps based on MCC
+python calibrate_classifier_mcc.py fps ../RF/model_RF_fps_8000_1.0_none_0.0023_3way.pkl
+model:../RF/model_RF_fps_8000_1.0_none_0.0023_3way.pkl, feat_type:fps, threshold:0.931, MCC:0.823
+
+
+# find optimal threshold for RFC using desc based on F1
+python calibrate_classifier_f1.py desc ../RF/model_RF_desc_8000_1.0_none_0.050_3way.pkl
+model:../RF/model_RF_desc_8000_1.0_none_0.050_3way.pkl, feat_type:desc, threshold:0.932, F1:0.770
+# find optimal threshold for RFC (desc) using MCC metric
+python calibrate_classifier_mcc.py desc ../RF/model_RF_desc_8000_1.0_none_0.050_3way.pkl
+model:../RF/model_RF_desc_8000_1.0_none_0.050_3way.pkl, feat_type:desc, threshold:0.932, MCC:0.771
+
+
+# find opt thresh for RFC usign both features based on F1
+python calibrate_classifier_f1.py both ../RF/model_RF_both_8000_1.0_none_0.0010_3way.pkl
+model:../RF/model_RF_both_8000_1.0_none_0.0010_3way.pkl, feat_type:both, threshold:0.910, F1:0.814
+
+# find opt thresh for RFC using both features based on MCC
+python calibrate_classifier_mcc.py both ../RF/model_RF_both_8000_1.0_none_0.0010_3way.pkl
+model:../RF/model_RF_both_8000_1.0_none_0.0010_3way.pkl, feat_type:both, threshold:0.910, MCC:0.813
+
+
+
+##### let's try using sklearn CalibrateClassifierCV:
+
+
+### fps
+
+# calibrate previously trained RFC fps model and dump as new calibrated model
+nohup python calibrateClassifierCV_v1.1.py fps ../RF/model_RF_fps_8000_1.0_none_0.0023_3way.pkl 1> calibrate_fps.log 2> calibrate_fps.err &
+
+# evaluate calibrated model on the held-out test data!  (3-way) -- make sure to get F1 and MCC
+nohup python evaluate_model_on_test_data_v1.2.py fps model_RF_fps_8000_1_0_none_0_0023_3way_calibrated.pkl 1> eval_fps_cal.log 2> eval_fps_cal.err &
+
+
+### descriptors only
+
+# calibrate model
+nohup python calibrateClassifierCV_v1.1.py desc ../RF/model_RF_desc_8000_1.0_none_0.050_3way.pkl 1> calibrate_desc.log 2> calibrate_desc.err &
+
+# evaluate calibrated model
+nohup python evaluate_model_on_test_data_v1.2.py desc model_RF_desc_8000_1_0_none_0_050_3way_calibrated.pkl 1> eval_desc_cal.log 2> eval_desc_cal.err &
+
+
+### both
+
+# calibrate, dump
+nohup python calibrateClassifierCV_v1.1.py both ../RF/model_RF_both_8000_1.0_none_0.0010_3way.pkl 1> calibrate_both.log 2> calibrate_both.err &
+
+# evaluate
+nohup python evaluate_model_on_test_data_v1.2.py both model_RF_both_8000_1_0_none_0_0010_3way_calibrated.pkl 1> eval_both_cal.log 2> eval_both_cal.err &
