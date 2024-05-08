@@ -1,0 +1,6 @@
+# merge the difference feature analysis scores into a single data frame
+# for each feature type (fps and desc)
+
+python merge_feature_importance_data_fps.py
+
+python merge_feature_importance_data_desc.py
