@@ -1,0 +1,44 @@
+
+# run evaluations on held-out test data
+
+# linear kernel
+python evaluate_svc_model_on_test_data_v1.3.py both model_svc_linear_both_C_0.001_gamma_null_coef0_null_degree_null.pkl ../data/old_85_15_split/test_data.pkl
+python evaluate_svc_model_on_test_data_v1.3.py desc model_svc_linear_desc_C_0.001_gamma_null_coef0_null_degree_null.pkl ../data/old_85_15_split/test_data.pkl
+python evaluate_svc_model_on_test_data_v1.3.py fps model_svc_linear_fps_C_0.001_gamma_null_coef0_null_degree_null.pkl ../data/old_85_15_split/test_data.pkl
+
+# RBF kernel
+python evaluate_svc_model_on_test_data_v1.3.py both model_svc_rbf_both_C_1.000_gamma_auto_coef0_null_degree_null.pkl ../data/old_85_15_split/test_data.pkl
+python evaluate_svc_model_on_test_data_v1.3.py desc model_svc_rbf_desc_C_10.000_gamma_scale_coef0_null_degree_null.pkl ../data/old_85_15_split/test_data.pkl
+python evaluate_svc_model_on_test_data_v1.3.py fps model_svc_rbf_fps_C_15.000_gamma_scale_coef0_null_degree_null.pkl ../data/old_85_15_split/test_data.pkl
+
+# sigmoid kernel
+python evaluate_svc_model_on_test_data_v1.3.py both model_svc_sigmoid_both_C_2.000_gamma_scale_coef0_-1.000_degree_null.pkl ../data/old_85_15_split/test_data.pkl
+python evaluate_svc_model_on_test_data_v1.3.py desc model_svc_sigmoid_desc_C_10.000_gamma_scale_coef0_-10.000_degree_null.pkl ../data/old_85_15_split/test_data.pkl
+python evaluate_svc_model_on_test_data_v1.3.py fps model_svc_sigmoid_fps_C_3.000_gamma_scale_coef0_-1.000_degree_null.pkl ../data/old_85_15_split/test_data.pkl
+
+# poly kernel
+python evaluate_svc_model_on_test_data_v1.3.py both model_svc_poly_both_C_0.100_gamma_scale_coef0_0.000_degree_3.pkl ../data/old_85_15_split/test_data.pkl
+python evaluate_svc_model_on_test_data_v1.3.py desc model_svc_poly_desc_C_1.000_gamma_scale_coef0_0.300_degree_3.pkl ../data/old_85_15_split/test_data.pkl
+python evaluate_svc_model_on_test_data_v1.3.py fps model_svc_poly_fps_C_0.100_gamma_scale_coef0_0.000_degree_2.pkl ../data/old_85_15_split/test_data.pkl
+
+# tanimoto kernel
+python evaluate_svc_tanimoto_model_on_test_data_v1.3.py fps model_svc_tanimoto_fps_C_10.000_gamma_null_coef0_null_degree_null.pkl ../data/old_85_15_split/test_data.pkl
+# this takes WAY too long--after a day I launched another (background instance) like this (and dumped log/err to files):
+nohup python -m sklearnex evaluate_svc_tanimoto_model_on_test_data_v1.3.py fps model_svc_tanimoto_fps_C_10.000_gamma_null_coef0_null_degree_null.pkl ../data/old_85_15_split/test_data.pkl 1> tanimoto_svc_eval_w_mcc.log 2> tanimoto_svc_eval_w_mcc.err &
+
+
+# results on held-out test set
+model,balanced_acc,avg_prec,roc_auc,F1,MCC,EF1,NEF1
+model_svc_linear_both_C_0.001_gamma_null_coef0_null_degree_null.pkl 0.8420002496300127 0.3936636399252249 0.913606703669646 0.30123456790123454 0.3580332997080274 44.70588235294118 0.48927038626609454
+model_svc_linear_desc_C_0.001_gamma_null_coef0_null_degree_null.pkl 0.8458910815008027 0.18502926903613667 0.8981715875195182 0.11725479299805502 0.20525231805045194 22.745098039215687 0.24892703862660948
+model_svc_linear_fps_C_0.001_gamma_null_coef0_null_degree_null.pkl 0.8265019618032117 0.29082555805305166 0.9054772560736936 0.241683638832315 0.30521910016545223 38.8235294117647 0.424892703862661
+model_svc_rbf_both_C_1.000_gamma_auto_coef0_null_degree_null.pkl 0.8309395173649938 0.7688510033444922 0.937070736145322 0.7612612612612611 0.7677115763683906 73.33333333333333 0.8025751072961373
+model_svc_rbf_desc_C_10.000_gamma_scale_coef0_null_degree_null.pkl 0.8461494570547224 0.7388205946493438 0.9357191679339208 0.7468354430379747 0.7464546588122493 70.19607843137254 0.7682403433476395
+model_svc_rbf_fps_C_15.000_gamma_scale_coef0_null_degree_null.pkl 0.8192614178135638 0.7519615590781378 0.9266027477981189 0.7511520737327188 0.7608631332512927 73.72549019607844 0.8068669527896998
+model_svc_sigmoid_both_C_2.000_gamma_scale_coef0_-1.000_degree_null.pkl 0.8564851584768494 0.5043316548588013 0.9266059743084868 0.6703296703296703 0.6679344182895635 63.52941176470588 0.6952789699570816
+model_svc_sigmoid_desc_C_10.000_gamma_scale_coef0_-10.000_degree_null.pkl 0.498363989427235 0.13229224702207154 0.8872891624063993 0.021537287488870988 -0.01299542222559763 18.43137254901961 0.20171673819742494
+model_svc_sigmoid_fps_C_3.000_gamma_scale_coef0_-1.000_degree_null.pkl 0.8503091930922111 0.7514448042426044 0.9249390571627257 0.7698924731182796 0.7712927382681471 72.94117647058823 0.7982832618025751
+model_svc_poly_both_C_0.100_gamma_scale_coef0_0.000_degree_3.pkl 0.8268880392411587 0.7278596791707462 0.9555953208807015 0.7455357142857144 0.7504784856687599 69.41176470588235 0.759656652360515
+model_svc_poly_desc_C_1.000_gamma_scale_coef0_0.300_degree_3.pkl 0.8463131600018 0.5900293583099785 0.9206956865801793 0.6379928315412187 0.6360622019546 65.09803921568627 0.7124463519313305
+model_svc_poly_fps_C_0.100_gamma_scale_coef0_0.000_degree_2.pkl 0.8462577149683759 0.7481460847314207 0.9542116573819586 0.7547974413646055 0.7552791051211305 70.98039215686275 0.7768240343347641
+

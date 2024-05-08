@@ -1,0 +1,23 @@
+# train SVCs with sklearn kernels (linear, RBF, sigmoid, and poly)
+
+nohup python -m sklearnex svc_dump_model_general.py both linear 0.001 null null null 1> svc_train_linear_both.log 2> svc_train_linear_both.err &
+nohup python -m sklearnex svc_dump_model_general.py desc linear 0.001 null null null 1> svc_train_linear_desc.log 2> svc_train_linear_desc.err &
+nohup python -m sklearnex svc_dump_model_general.py fps  linear 0.001 null null null 1> svc_train_linear_fps.log  2> svc_train_linear_fps.err &
+
+nohup python -m sklearnex svc_dump_model_general.py both rbf 1.0  auto  null null 1> svc_train_rbf_both.log 2> svc_train_rbf_both.err &
+nohup python -m sklearnex svc_dump_model_general.py desc rbf 10.0 scale null null 1> svc_train_rbf_desc.log 2> svc_train_rbf_desc.err &
+nohup python -m sklearnex svc_dump_model_general.py fps  rbf 15.0 scale null null 1> svc_train_rbf_fps.log  2> svc_train_rbf_fps.err &
+
+nohup python -m sklearnex svc_dump_model_general.py both sigmoid 2.0  scale -1.0  null 1> svc_train_sigmoid_both.log 2> svc_train_sigmoid_both.err &
+nohup python -m sklearnex svc_dump_model_general.py desc sigmoid 10.0 scale -10.0 null 1> svc_train_sigmoid_desc.log 2> svc_train_sigmoid_desc.err &
+nohup python -m sklearnex svc_dump_model_general.py fps  sigmoid 3.0  scale -1.0  null 1> svc_train_sigmoid_fps.log  2> svc_train_sigmoid_fps.err &
+
+nohup python -m sklearnex svc_dump_model_general.py both poly 0.1 scale 0.0 3 1> svc_train_poly_both.log 2> svc_train_poly_both.err &
+nohup python -m sklearnex svc_dump_model_general.py desc poly 1.0 scale 0.3 3 1> svc_train_poly_desc.log 2> svc_train_poly_desc.err &
+nohup python -m sklearnex svc_dump_model_general.py fps  poly 0.1 scale 0.0 2 1> svc_train_poly_fps.log  2> svc_train_poly_fps.err &
+
+
+# train SVC with Tanimoto kernel
+
+nohup python -m sklearnex svc_dump_model_tanimoto.py fps tanimoto 10.0 null null null 1> svc_train_tanimoto_fps.log 2> svc_train_tanimoto_fps.err &
+
