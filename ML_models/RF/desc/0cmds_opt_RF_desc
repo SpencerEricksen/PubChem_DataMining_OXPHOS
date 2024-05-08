@@ -1,0 +1,7 @@
+
+
+# running hyperparam search with sklearnex (intelex-enhanced sklearn)
+nohup python -m sklearnex rf_opt7_desc.py desc 1> rf_opt7_desc.log 2> rf_opt7_desc.err &
+
+# final search
+nohup python -m sklearnex rf_opt8_desc.py desc 1> rf_opt8_desc.log 2> rf_opt8_desc.err &

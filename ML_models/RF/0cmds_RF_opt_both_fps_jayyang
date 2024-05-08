@@ -1,0 +1,10 @@
+
+
+# trying scikit-learn-intelex on jayyang (64GB RAM, 40 threads/20 cores)
+nohup python -m sklearnex rf_opt1_both.py both 1> rf_opt1_both.log 2> rf_opt1_both.err &
+nohup python -m sklearnex rf_opt4_both.py both 1> rf_opt4_both.log 2> rf_opt4_both.err &
+
+
+# do larger grid search for hyperparams using RF on fps
+python -m sklearnex rf_opt1_fps.py fps 1> rf_opt1_fps.log 2> rf_opt1_fps.err &
+

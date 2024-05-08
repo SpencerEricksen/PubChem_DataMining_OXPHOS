@@ -1,0 +1,5 @@
+
+# dump RF scores using fps model on test of cpds, save to 
+# pickle (with smiles, PUBCHEM_CIDs, labels, and fingerprint features)
+
+python rf_dump_scores_on_fulltestset.py
