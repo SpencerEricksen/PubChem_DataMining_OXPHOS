@@ -1,0 +1,58 @@
+
+
+# I split the featured molecule data (N=155653, 1859/153794 actives/inactive)
+
+# feature data was from ../../ML_training_data/*.pkl
+
+
+# split this into training and test (held-out) sets -- 70% training, 15% testing, 15% calibration
+
+# this 70% training data will be split again in CV for model-building (5-fold)
+
+
+
+##### using scaler ####
+this standard scaler "stand_scaler_desc_training_data.pkl" was fit 
+to the training data, this scaler should be loaded and use to scale 
+descriptor data in new data sets
+
+
+import pandas as pd
+import numpy as np
+import pickle
+from sklearn.preprocessing import StandardScaler
+
+df = pd.read_pickle('training_data.pkl')
+df = df.replace( [np.inf, -np.inf], np.nan )
+
+# fit a standardscaler model to the training data (just the descriptor features)
+molid_list = df.PUBCHEM_CID.tolist()
+col_list = df.columns.tolist()
+feat_cols = [ c for c in col_list[2:] if 'desc' in str(c) ]
+feat_cols.remove('desc_Ipc')
+df_X = df[feat_cols]
+df_X.fillna( df_X.mean() )
+df_X = df_X.fillna( df_X.mean() )
+
+# fit scaler to descriptor data in training set
+my_desc_scaler = StandardScaler().fit(df_X)
+# dump to a pickle file for later use
+fname = "stand_scaler_desc_training_data.pkl"
+pickle.dump( my_desc_scaler, open(fname,'wb') )
+
+# fit scaler to fps data in training set (maybe used in SVC?)
+molid_list = df.PUBCHEM_CID.tolist()
+col_list = df.columns.tolist()
+feat_cols = [ c for c in col_list[2:] if 'desc' not in str(c) ]
+df_X = df[feat_cols]
+my_desc_scaler = StandardScaler().fit(df_X)
+fname = "stand_scaler_fps_training_data.pkl"
+pickle.dump( my_desc_scaler, open(fname,'wb') )
+
+
+# down the line, when you want to apply this scaler
+# load the file
+loaded_scaler = pickle.load( open('stand_scaler_desc_training_data.pkl', 'rb') )
+# apply to descriptor data
+X_scaled = loaded_scaler.transform( df_X )
+
