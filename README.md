@@ -1,10 +1,18 @@
 
 # Pipeline for compiling PubChem BioAssay data for compounds from OXPHOS-related assays.
 
-All data and model files are available on our corresponding data repo for this project: [https://zenodo.org/doi/10.5281/zenodo.11003005]:
-   - Zenodo version v1 contains data/source for data mining workflow [https://doi.org/10.5281/zenodo.11003006]
-   - Zenodo version v2 contains data/source for building machine learning classifiers [https://doi.org/10.5281/zenodo.11153594]
 
+   
+This project was funded by the following grants:
+   - I01BX005627-01, PI Manish Patankar, Veterans Health Administration
+   - R01GM135631, PI Tony Gitter, National Institute of General Medical Sciences  
+
+All data and model files are available on our corresponding data repo for this project: https://zenodo.org/doi/10.5281/zenodo.11003005:
+   - Zenodo version v1 contains data/source for data mining workflow https://doi.org/10.5281/zenodo.11003006
+   - Zenodo version v2 contains data/source for building machine learning classifiers https://doi.org/10.5281/zenodo.11153594
+
+
+   
 Here, we applied the pipeline to acquire compound testing data from PubChem. Data are pulled from assays likely related to the OXPHOS pathway. This includes a wide variety of assays involving different biochemical targets, whole cells, etc.  
 
 The pipeline begins with a search using key word terms in the 'Assay Description' to identify assays potentially related to OXPHOS pathway. Here is the site for structuring and submitting your query:
