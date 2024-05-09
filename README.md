@@ -187,7 +187,7 @@ python ./source/add_flag_ETC-linked_PMID.py
 
 Isolate the molecule set for descriptor generations and pains/tox flags, save dataframe as a pickle (.pkl).
 ```sh
-python get_unique_pubchem_cids.py
+python ./source/get_unique_pubchem_cids.py
 ```
 >in: "oxphos_merged_aids_cids_clnsmi_assaydesc_ETCassay_pmid.pkl"   
 >out: "unique_pubchem_cids.pkl"
@@ -214,7 +214,7 @@ nohup python ./source/rdkit_add_pains_flags.py unique_pubchem_cids.pkl unique_pu
 
 Get morgan fingerprint features (ECFP6, length=2048) for compound set.
 ```sh
-nohup python source/rdkit_get_morgan_fps.py > rdkit_get_morgan_fps.log 2>&1 &
+nohup python ./source/rdkit_get_morgan_fps.py > rdkit_get_morgan_fps.log 2>&1 &
 ```
 >in: "unique_pubchem_cids.pkl"   
 >out: "unique_pubchem_cids_fps.pkl"   
@@ -223,7 +223,7 @@ nohup python source/rdkit_get_morgan_fps.py > rdkit_get_morgan_fps.log 2>&1 &
 
 Get RDKit molecular descriptors for compound set.
 ```sh
-nohup python source/rdkit_calc_mol_descriptors.py > rdkit_calc_mol_descriptors.log 2>&1 &
+nohup python ./source/rdkit_calc_mol_descriptors.py > rdkit_calc_mol_descriptors.log 2>&1 &
 ```
 >in: "unique_pubchem_cids.pkl"   
 >out: "unique_pubchem_cids_desc.pkl"
