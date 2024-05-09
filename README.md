@@ -28,10 +28,10 @@ A query was performed Feb 22, 2022 at 1:57pm using the following search syntax:
 This returned a list of 8415 AIDs that were downloaded ('pcassay_result.txt'). 
 To download, results:
 ```sh
-Click "Send to:', 
+Click "Send to:", 
     Choose Destination: "File", 
-    Format:"Summary (text)', 
-    Sort by: "Default order"
+    Format: "Summary (text)", 
+    Sort by: "Default order",
     Click: "Create File"
 ```
 This search included all chemical screening assays having any of the oxphos-related search terms in their \[Assay Description\]. 
