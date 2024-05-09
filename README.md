@@ -43,7 +43,8 @@ grep AID: pcassay_result_summary_2022-02-22.txt | awk '{print $2}' > assay_list.
 
 Download assay data for assays in list.
 ```
-export PATH="${PWD}/source:"$PATH
+# if you want direct access to scripts in your path
+#export PATH="${PWD}/source:"$PATH
 mkdir AIDs
 nohup python ./source/get_bioassay_data_v1.4.py assay_list.list > get_bioassay_data_v1.4.log 2>&1 &
 ```
@@ -79,7 +80,7 @@ python ./source/write_cgi_for_cid_fetch_v1.4.py
    out: "pc_fetch_all_0.cgi", "pc_fetch_all_1.cgi" (pc_fetch query files for all CIDs in 2 batches)
 
 
-Run the SMILES fetches for all unique CIDs. We did this in 2 batches due to limit on number of CIDs per request.
+Run the SMILES fetches for all unique CIDs. This is done in 2 batches due to a limit on number of CIDs per request.
 ```
 ./source/wrapper_fetch_v1.2.sh pc_fetch_all_0.cgi
 gunzip 9245063668458039.txt.gz
@@ -182,7 +183,7 @@ nohup python source/rdkit_calc_mol_descriptors.py > rdkit_calc_mol_descriptors.l
  out: "unique_pubchem_cids_desc.pkl"   
 
 
-Get NPscores for compound set.
+Get NPscores (natural product likeness scores) for compound set.
 ```
 python ./source/npscorer_v1.2.py unique_pubchem_cids.pkl unique_pubchem_cids_npscores.pkl
 ```
@@ -214,7 +215,7 @@ python ./source/assign_cpd_oxphos_activity_labels.py
  out: "unique_pubchem_cids_complete_assay_results_w_labels.pkl"   
 
 
-Merge all of the compound data into one dataframe.
+Merge compound data into one dataframe.
 ```
 python ./source/merge_cpd_data.py
 ```
@@ -237,7 +238,7 @@ Build training data with labeled actives/inactives.
 python ./source/build_training_data_sets.py
 ```
 
-Draw RDKit mol grids for each cluster for inspection.
+Draw RDKit mol grids for each cluster for inspection of various active chemotypes. Only the active compounds are clustered.
 ```
 python ./source/rdkit_draw_clusters_aln_oxphos_v1.3.py 0.750
 ```
